@@ -2,14 +2,17 @@ package com.example.superpractice.activity;
 import com.example.superpractice.R;
 
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements OnItemClickListener {
 	
 	private ListView listView;
 	
@@ -30,11 +33,27 @@ public class MainActivity extends BaseActivity {
 		adapter = new ArrayAdapter<String>(this, R.layout.practice_item, data);
 		
 		listView.setAdapter(adapter);
+		listView.setOnItemClickListener(this);
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+		// TODO Auto-generated method stub
+		switch (arg2) {
+		case 0:
+			Toast.makeText(this, "0", Toast.LENGTH_SHORT).show();
+			break;
+
+		case 1:
+			Toast.makeText(this, "1", Toast.LENGTH_SHORT).show();
+			break;
+		default:
+			break;
+		}
 	}
 	
 	
-//	android.R.layout.simple_list_item_1
-//	R.layout.practice_item
+
 
 
 }
